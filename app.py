@@ -3,35 +3,31 @@ import qrcode
 from PIL import Image
 import io
 import os
-import json
 
 app = Flask(__name__)
 
-# Mapping dictionary for AV references
-qr_data = {
-    "AV1": {
-        "title": "AV1",
-        "location": "Please place in AV70, AV57 box in the master room",
-        "use": "This item is used for creating mathematical objects",
-        "category": "Tool used by whole family"
-    },
-    "AV2": {
-        "title": "AV2",
-        "location": "Please place in AV17, AV23 box in the bedroom",
-        "use": "This item is used for repairing pipe",
-        "category": "Tool used by Dada"
-    },
-    "AV3": {
-        "title": "AV3",
-        "location": "Love Please place in AV25 box in the kitchen",
-        "use": "This item is used for cooking vegetables",
-        "category": "Tool used by Mumma and Dada"
-    }
-    # Add up to AV50 as needed
-}
+# Load QR reference data from pipe-separated file
+def load_qr_data(file_path="qr_mapping_pipe_separated.txt"):
+    qr_data = {}
+    if not os.path.exists(file_path):
+        return qr_data
+    with open(file_path, "r", encoding="utf-8") as f:
+        lines = f.readlines()[1:]  # skip header
+        for line in lines:
+            parts = line.strip().split("|")
+            if len(parts) == 4:
+                title, location, use, category = parts
+                qr_data[title.upper()] = {
+                    "title": title,
+                    "location": location,
+                    "use": use,
+                    "category": category
+                }
+    return qr_data
 
 @app.route("/view/<code>", methods=["GET"])
 def view_code(code):
+    qr_data = load_qr_data()
     entry = qr_data.get(code.upper())
     if not entry:
         return f"<h3>No entry found for {code}</h3>", 404
@@ -87,7 +83,6 @@ def generate_sheet():
             img_qr = qr.make_image(fill_color="black", back_color="white").convert("RGB")
             img_qr = img_qr.resize((qr_size, qr_size))
 
-            # Add doll logo to center
             pos = ((qr_size - logo_size) // 2, (qr_size - logo_size) // 2)
             img_qr.paste(logo, pos, mask=logo if logo.mode == 'RGBA' else None)
 
