@@ -1,0 +1,4 @@
+title|location|use|category
+AV1|Please place in AV70, AV57 box in the master room|This item is used for creating mathematical objects|Tool used by whole family
+AV2|Please place in AV17, AV23 box in the bedroom|This item is used for repairing pipe|Tool used by Dada
+AV3|Love Please place in AV25 box in the kitchen|This item is used for cooking vegetables|Tool used by Mumma and Dada
