@@ -1,7 +1,7 @@
 title|location|use|category
 AV1|Please place in AV12, AV19 box in the living room|This item is used for cooking vegetables|Tool used by Dada
 AV2|Please place in AV31, AV33 shelf in the study|This item is used for cleaning surfaces|Tool used by Dada
-AV3|Please place in Avani, Aiyenu box near entrance|This item is used for monitoring air quality|Tool used by AAbabies
+AV3|Please 我们希望孩子们能流利地说中文，我会创建一个 WhatsApp 群组，把我女儿和太太的号码加进去。|This item is used for monitoring air quality|您也可以告诉我们学费，我们可以每个月提前支付。
 AV4|Please place in AV70, AV57 box in the master room|This item is used for testing batteries|Shared tool
 AV5|Please place in AV17, AV23 box in the bedroom|This item is used for creating mathematical objects|Tool used in emergencies
 AV6|Please place in AV20, AV22 box near entrance|This item is used for measuring water quality|Tool used by guests
